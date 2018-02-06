@@ -1,0 +1,70 @@
+{% extends 'survey/base.html' %}
+
+{% load static %}
+
+{% block title %} DashBoard {% endblock %}
+
+
+{% block stylesheet %} 
+  <link rel="stylesheet" type="text/css" href="{% static 'survey/css/dashboard.css' %}" />
+
+{% endblock %}
+
+{% block content %}
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class='row'>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+       <center> <h3 class="panel-title">Dashboard Data</h3> </center>
+      </div>
+      <div class="panel-body">
+      <center id="get_url_link" data-get_url="/user/pet/"> 
+        <div id= "nodata">
+        </div>
+      </center>
+        <br>
+        <div id="midpart" class="form-group text-center col-md-4">
+        <!--  -->
+           <form id='surveyform' action ="."  method='POST' >
+          {% csrf_token %}
+    
+          <div class="panel-group">
+              <label class="control-label" for="email"> name </label>
+              <input type="text" class="form-control"  id="id_name" name="name" required>
+              </div>
+
+          <div class="panel-group">
+              <label class="control-label" for="description"> Description</label>
+              <textarea rows="4" cols="50" class="form-control"  id="id_description" name="description"></textarea>
+            </div>
+          <input type='submit' name='submit'>
+          </form>
+<!--  -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div> 
+{% endblock %}
+{% block javascript %}
+  
+<script>
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+</script>
+<script type="text/javascript" src="{% static 'survey/js/survey.js' %}"></script>
+{% endblock %}

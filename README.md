@@ -21,27 +21,27 @@ environment allows you to isolate this project and install any packages you
 need without affecting the system Python installation. At the terminal, type
 the following command:
 
-$ virtualenv -p python3.6 venv
+    $ virtualenv -p python3.6 venv
 
 2. Activate the virtual environment:
 
-$ source venv/bin/activate
+    $ source venv/bin/activate
 
 3. Install Python dependencies for this project:
 
-$ pip install -r requirements.txt
+    $ pip install -r requirements.txt
 
 4. For Database schema:
 
-$ python manage.py migrate
+    $ python manage.py migrate
 
 5. Create Super User
 
-$ python manage.py createsupersuer
+    $ python manage.py createsupersuer
 
 6. Start the Django development server:
 
-$ python manage.py runserver
+    $ python manage.py runserver
 
 7. Open http://127.0.0.1:8000/ in a web browser to view your application.
 

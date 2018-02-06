@@ -1,0 +1,108 @@
+{% load staticfiles %}
+{% load static %}
+{% load i18n %}
+{% block stylesheet %} 
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  -->
+  <!-- thid code used to create background and my code inbult-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="{% static 'survey/css/style2.css' %}" rel="stylesheet" type="text/css">
+
+<link rel="shortcut icon" href="{%  static 'survey/images/favicon.ico' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'survey/css/bootstrap.min.css' %}" />
+
+{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>show all data</title>
+</head>
+<body class="container">
+<div >
+  <div class="sky">
+    <div class="stars"></div>
+    <div class="stars1"></div>
+    <div class="stars2"></div>
+    <div class="shooting-stars"></div>
+<div class="Start_Body"></div>
+  <div id='Div_header'>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a id="btnExport" ></a></li>   
+    </ul>
+    <form class="navbar-form navbar-right">
+      <div class="input-group">
+        <input type="text" class="form-control" id="search" placeholder="Search" onkeyup="myFunction()">
+        <div class="input-group-btn">
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
+</div>
+<!-- ____________Div Menu Start Main Page______________________________________ -->
+<div id='Table_back_div'>
+<!-- _____________________TAble Start Here____________________________________ -->
+<div id='table_wrapper'>
+<table  class="results table table-hover " id='table_id'>
+  <p class='pre'> <thead>
+    <tr>
+      <th class='id'>Id</th>
+
+      <th class='name-'>Name </th>
+      <th class='description'>Description </th>
+      <th class='td7'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    </tr>
+  </thead></p>
+  <tbody>    
+  </tbody>
+</table>
+</div>
+  
+</div>
+  </div>
+</div>
+</body>
+{% endblock %}
+{% block javascript %}<script>
+
+//searching data
+ $(document).ready(function(){  
+           $('#search').keyup(function(){  
+               var value = search_table($(this).val()); 
+           });  
+           function search_table(value){  
+                $('#table_id tbody tr').each(function(){  
+                     var found = 'false';  
+                     $(this).each(function(){  
+                          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)  
+                          {  
+                              found = 'true';  
+                          }  
+                     });  
+                     if(found == 'true')  
+                         {  
+                               $(this).show();  
+                         }  
+                            else  
+                             {  
+                               $(this).hide();  
+                             }  
+                });  
+           }  
+      });  
+</script>
+<script src="{% static 'survey/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'survey/js/get_all_survey.js' %}"></script>
+
+{% endblock %}
+
+
+
+  
+
+
+

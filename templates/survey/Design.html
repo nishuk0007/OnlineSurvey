@@ -1,0 +1,44 @@
+{% extends 'survey/base.html' %}
+{% load static %}
+{% block title %} Design Survey Page {% endblock %}
+{% block stylesheet %} 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'survey/css/Design.css' %}" />
+
+ 
+{% endblock %}
+
+{% block content %}
+<div id="delete-drop">
+Drag here to delete.
+</div>
+
+<!-- drop data -->
+<input type="submit" class="form-control save_form" id="submit" value="Submit">
+<div class="col-sm-6 data " style="" >
+  <div id='Drop'>
+  </div>      
+</div>
+<!-- here imput box to edit data -->
+<div class='hide edit_level col-sm-2 '>
+    <input type="text" class="form-control" id="lavel_name_value" value="">
+    <button id='save_data' onclick="SaveData()">save-name</button>
+</div>
+<!-- drag able deiv -->
+<div class="col-sm-6 start-drag" style="background-color:lavender;">
+
+<div class="draggable">
+    <p id='lebel'>Enter Level Name </p>
+</div>
+<div class="draggable">
+  <div class="form-group">
+  <input type="text" class="form-control" id="input" placeholder="Imput your data">
+</div></div>
+</div>
+{% endblock %}
+{% block javascript %}
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="{% static 'survey/js/Design.js' %}"></script>
+{% endblock %}
