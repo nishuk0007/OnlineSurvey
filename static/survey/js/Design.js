@@ -1,8 +1,20 @@
 //Stop Drag and Drop Function
+ var temp ;
  $(window).dblclick(
-            function () {
-                alert('stoped ');
-    }            
+            function (){
+                if (temp == false || temp == undefined){
+                   $('.start-drag').find('div').removeClass('draggable')
+                    $('.data').sortable('disable'); 
+                    temp =true;
+                    alert('Drop/Drop stop') 
+                }
+                else{
+                    $('.start-drag').find('div').addClass('draggable')
+                    $('.data').sortable('enable');
+                    temp=false
+                    alert('Drop/Drop start') 
+                }            
+        }
 );
 
 //Show already added Data
@@ -121,6 +133,7 @@ $('#submit').on('click',function(){
     var level_x;
     var level_y;
     var offset = $('.data').offset();
+    var error=0;
     console.log(offset)
     $(".main").each(function(){
         var id = $(this).attr('id')
@@ -152,10 +165,17 @@ $('#submit').on('click',function(){
         }
         else{
             alert('Please Add value like Level and name');
+            error++;
             return false
+
         }
         count++;
     });
+
+    if (error>0){
+        return false
+    }
+
     if(level_data!=input){
         alert('please add Commbo value')
         return false
